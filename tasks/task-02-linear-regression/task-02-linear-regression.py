@@ -39,7 +39,16 @@ def solve_linear_regression(X_train, y_train):
     Students must complete this function using only linear algebra.
     """
     ### START CODE HERE ###
-    ### TODO
+    n = len(X_train)
+
+    mean_x = np.mean(X_train)
+    mean_y = np.mean(y_train)
+
+    numerator = np.sum((X_train - mean_x) * (y_train - mean_y))
+    denominator = np.sum((X_train - mean_x) ** 2)
+
+    m_hat = numerator / denominator
+    b_hat = mean_y - m_hat * mean_x
     ### END CODE HERE ###
     
     return m_hat, b_hat  # Return slope and intercept
